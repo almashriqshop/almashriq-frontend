@@ -1,5 +1,5 @@
 // ================= API CONFIGURATION =================
-export const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+export const API_URL = import.meta.env.VITE_API_URL || 'https://web-production-bdd03.up.railway.app/api';
 
 // ================= BRAND CONSTANTS =================
 export const BRAND = {
