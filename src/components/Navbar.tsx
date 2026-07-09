@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
-import { Search, Heart, ShoppingBag, User, X, LogOut, ShieldAlert, Menu } from 'lucide-react';
+import { Search, Heart, ShoppingBag, User, X, LogOut, ShieldAlert } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 interface NavbarProps {
