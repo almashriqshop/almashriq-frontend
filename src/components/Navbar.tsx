@@ -57,7 +57,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onCartToggle }) => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-14 md:h-16">
-            {/* Nav links (desktop) */}
+
+            {/* Desktop nav links */}
             <div className="hidden md:flex items-center space-x-6">
               {navLinks.map((link) => {
                 const isActive = location.pathname === link.path;
@@ -75,18 +76,52 @@ export const Navbar: React.FC<NavbarProps> = ({ onCartToggle }) => {
               })}
             </div>
 
+            {/* Mobile left: hamburger */}
+            <div className="flex md:hidden items-center">
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="text-luxury-cream/70 hover:text-luxury-gold transition-colors p-1"
+                aria-label="Menu"
+              >
+                {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              </button>
+            </div>
+
             {/* Logo (Center) */}
-            <div className="flex-1 flex justify-center md:justify-center">
-              <Link to="/" className="flex items-center space-x-2">
-                <img src="/logo.jpg" alt="Al Mashriq" className="w-8 h-8 md:w-10 md:h-10 object-contain rounded-full" />
-                <span className="font-serif text-lg md:text-xl tracking-[0.3em] uppercase text-luxury-gold">
+            <div className="flex-1 flex justify-center">
+              <Link to="/" className="flex items-center gap-2">
+                <img src="/logo.jpg" alt="Al Mashriq" className="w-8 h-8 md:w-10 md:h-10 object-contain" />
+                <span className="font-serif text-base md:text-xl tracking-[0.25em] md:tracking-[0.3em] uppercase text-luxury-gold">
                   Al Mashriq
                 </span>
               </Link>
             </div>
 
-            {/* Utility icons (Right) */}
-            <div className="flex items-center space-x-4">
+            {/* Mobile right: cart + user only */}
+            <div className="flex md:hidden items-center gap-3">
+              <button
+                onClick={onCartToggle}
+                className="relative text-luxury-cream/70 hover:text-luxury-gold transition-colors"
+                aria-label="Cart"
+              >
+                <ShoppingBag size={18} />
+                {cartCount > 0 && (
+                  <span className="absolute -top-1 -right-1.5 bg-luxury-gold text-luxury-black text-[8px] w-3.5 h-3.5 rounded-full flex items-center justify-center font-bold">
+                    {cartCount}
+                  </span>
+                )}
+              </button>
+              <Link
+                to={isAuthenticated ? '/dashboard' : '/login'}
+                className="text-luxury-cream/70 hover:text-luxury-gold transition-colors"
+                aria-label="Account"
+              >
+                <User size={18} />
+              </Link>
+            </div>
+
+            {/* Desktop right icons */}
+            <div className="hidden md:flex items-center gap-4">
               <button
                 onClick={() => setIsSearchOpen(true)}
                 className="text-luxury-cream/70 hover:text-luxury-gold transition-colors"
@@ -102,7 +137,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onCartToggle }) => {
               >
                 <Heart size={17} />
                 {wishlist.length > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-luxury-gold text-luxury-black text-[8px] w-3.5 h-3.5 rounded-full flex items-center justify-center font-bold">
+                  <span className="absolute -top-1 -right-1.5 bg-luxury-gold text-luxury-black text-[8px] w-3.5 h-3.5 rounded-full flex items-center justify-center font-bold">
                     {wishlist.length}
                   </span>
                 )}
@@ -115,7 +150,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onCartToggle }) => {
               >
                 <ShoppingBag size={17} />
                 {cartCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-luxury-gold text-luxury-black text-[8px] w-3.5 h-3.5 rounded-full flex items-center justify-center font-bold">
+                  <span className="absolute -top-1 -right-1.5 bg-luxury-gold text-luxury-black text-[8px] w-3.5 h-3.5 rounded-full flex items-center justify-center font-bold">
                     {cartCount}
                   </span>
                 )}
@@ -128,7 +163,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onCartToggle }) => {
               )}
 
               {isAuthenticated ? (
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center gap-2">
                   <Link to="/dashboard" className="text-luxury-cream/70 hover:text-luxury-gold transition-colors" aria-label="Dashboard">
                     <User size={17} />
                   </Link>
@@ -141,15 +176,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onCartToggle }) => {
                   <User size={17} />
                 </Link>
               )}
-
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="md:hidden text-luxury-cream/70 hover:text-luxury-gold transition-colors"
-                aria-label="Menu"
-              >
-                {isMobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
-              </button>
             </div>
+
           </div>
         </div>
       </nav>
@@ -157,10 +185,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onCartToggle }) => {
       {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <div
-            className="fixed inset-x-0 top-14 z-[60] bg-luxury-black/98 backdrop-blur-md border-b border-white/5 md:hidden"
-          >
-            <div className="max-w-7xl mx-auto px-6 py-4 space-y-1">
+          <div className="fixed inset-x-0 top-14 z-[60] bg-luxury-black/98 backdrop-blur-md border-b border-white/5 md:hidden">
+            <div className="px-5 py-4 space-y-1">
               {navLinks.map((link) => {
                 const isActive = location.pathname === link.path;
                 return (
@@ -175,6 +201,22 @@ export const Navbar: React.FC<NavbarProps> = ({ onCartToggle }) => {
                   </Link>
                 );
               })}
+              <div className="border-t border-white/5 pt-3 mt-3 space-y-2">
+                <button
+                  onClick={() => { setIsSearchOpen(true); setIsMobileMenuOpen(false); }}
+                  className="flex items-center gap-3 text-sm text-luxury-cream/60 hover:text-luxury-gold transition-colors py-2"
+                >
+                  <Search size={16} />
+                  <span className="uppercase tracking-widest text-[11px]">Search</span>
+                </button>
+                <Link
+                  to="/wishlist"
+                  className="flex items-center gap-3 text-sm text-luxury-cream/60 hover:text-luxury-gold transition-colors py-2"
+                >
+                  <Heart size={16} />
+                  <span className="uppercase tracking-widest text-[11px]">Wishlist</span>
+                </Link>
+              </div>
             </div>
           </div>
         )}
