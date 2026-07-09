@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { AlertCircle, ArrowRight } from 'lucide-react';
+import { AlertCircle, ArrowRight, Eye, EyeOff } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 declare global {
@@ -25,6 +25,7 @@ export const Login: React.FC = () => {
 
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   // Google Sign-In callback
   useEffect(() => {
@@ -220,14 +221,23 @@ export const Login: React.FC = () => {
 
             <div className="space-y-1">
               <label className="text-[9px] uppercase tracking-widest text-luxury-cream/50">Password</label>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter your password"
-                className="w-full bg-luxury-black/50 border border-white/10 px-3 py-2.5 text-xs text-luxury-cream focus:border-luxury-gold focus:outline-none tracking-wider placeholder-luxury-cream/20 transition-colors rounded-lg"
-                required
-              />
+              <div className="relative">
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Enter your password"
+                  className="w-full bg-luxury-black/50 border border-white/10 px-3 py-2.5 pr-10 text-xs text-luxury-cream focus:border-luxury-gold focus:outline-none tracking-wider placeholder-luxury-cream/20 transition-colors rounded-lg"
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-luxury-cream/30 hover:text-luxury-gold transition-colors"
+                >
+                  {showPassword ? <EyeOff size={14} /> : <Eye size={14} />}
+                </button>
+              </div>
             </div>
 
             <button
