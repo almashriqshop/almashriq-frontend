@@ -60,20 +60,13 @@ const App: React.FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-luxury-black text-luxury-cream">
-      
-      {/* Top Banner announcement */}
-      <div className="bg-luxury-gold text-luxury-black py-1.5 px-4 text-center text-[9px] font-bold uppercase tracking-[0.25em] z-50">
-        EXQUISITE CRAFTSMANSHIP — DIRECT DELIVERIES TO HYDERABAD METRO ONLY
-      </div>
-
-      {/* Navigation */}
       <Navbar onCartToggle={() => setIsCartOpen(true)} />
 
       {/* Cart Slider Drawer */}
       <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
 
       {/* Main Pages */}
-      <main className="flex-grow">
+      <main className="flex-grow pt-[80px] md:pt-[86px]">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
