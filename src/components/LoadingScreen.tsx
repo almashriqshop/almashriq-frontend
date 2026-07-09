@@ -6,12 +6,10 @@ interface LoadingScreenProps {
 }
 
 export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
-  const [showLogo, setShowLogo] = useState(false);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const logoTimer = setTimeout(() => setShowLogo(true), 400);
-    const endTimer = setTimeout(() => onComplete(), 2800);
+    const endTimer = setTimeout(() => onComplete(), 1800);
 
     const progressInterval = setInterval(() => {
       setProgress((prev) => {
@@ -19,42 +17,44 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
           clearInterval(progressInterval);
           return 100;
         }
-        return prev + Math.random() * 12 + 4;
+        const increment = prev < 70 ? Math.random() * 20 + 10 : Math.random() * 5 + 2;
+        return Math.min(prev + increment, 100);
       });
-    }, 150);
+    }, 120);
 
     return () => {
-      clearTimeout(logoTimer);
       clearTimeout(endTimer);
       clearInterval(progressInterval);
     };
   }, [onComplete]);
 
   return (
-    <div className="w-screen h-screen bg-luxury-black flex flex-col justify-center items-center select-none z-[9999]">
+    <div className="w-screen h-screen bg-luxury-black flex flex-col justify-center items-center z-[9999]">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="flex flex-col items-center space-y-6"
+        transition={{ duration: 0.4 }}
+        className="flex flex-col items-center space-y-5"
       >
         <img
           src="/logo.jpg"
           alt="Al Mashriq"
-          className="w-24 h-24 md:w-32 md:h-32 object-contain rounded-full"
+          className="w-20 h-20 md:w-28 md:h-28 object-contain rounded-full"
         />
-        <h1 className="text-2xl md:text-3xl font-serif text-luxury-gold tracking-[0.35em] uppercase">
+        <h1 className="text-lg md:text-2xl font-serif text-luxury-gold tracking-[0.35em] uppercase">
           Al Mashriq
         </h1>
+      </motion.div>
 
-        {/* Loading bar */}
-        <div className="w-40 h-[1px] bg-white/10 relative overflow-hidden mt-4">
+      {/* Thin progress bar at bottom */}
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 w-24 md:w-32">
+        <div className="h-[1px] bg-white/10 relative overflow-hidden">
           <div
-            className="absolute inset-y-0 left-0 bg-luxury-gold transition-all duration-200 ease-out"
+            className="absolute inset-y-0 left-0 bg-luxury-gold transition-all duration-150 ease-out"
             style={{ width: `${Math.min(progress, 100)}%` }}
           />
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };
