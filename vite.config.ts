@@ -32,10 +32,4 @@ export default defineConfig({
       },
     },
   },
-  // In production, API calls go directly to the backend URL
-  define: {
-    'import.meta.env.VITE_API_URL': JSON.stringify(
-      process.env.VITE_API_URL || 'http://localhost:5000/api'
-    ),
-  },
 })
