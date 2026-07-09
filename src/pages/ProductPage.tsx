@@ -2,17 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
-import { Star, Heart, Share2, Shield, Calendar, Compass, Layers, CheckCircle } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Star, Heart, Share2, Shield, Compass, Layers, CheckCircle } from 'lucide-react';
 
 export const ProductPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
-  const { addToCart, wishlist, toggleWishlist, addToRecentlyViewed, recentlyViewed } = useCart();
+  const { addToCart, wishlist, toggleWishlist, addToRecentlyViewed } = useCart();
   const { apiUrl, token, isAuthenticated } = useAuth();
 
   const [product, setProduct] = useState<any | null>(null);
-  const [related, setRelated] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeImage, setActiveImage] = useState('');
   const [quantity, setQuantity] = useState(1);
@@ -34,13 +32,6 @@ export const ProductPage: React.FC = () => {
         setProduct(data);
         setActiveImage(data.images?.[0] || 'https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=600');
         addToRecentlyViewed(slug || '');
-
-        // Fetch related products (same category)
-        const relRes = await fetch(`${apiUrl}/products?category=${data.category}&limit=3`);
-        if (relRes.ok) {
-          const relData = await relRes.json();
-          setRelated(relData.products.filter((p: any) => p.id !== data.id));
-        }
       } else {
         navigate('/404');
       }

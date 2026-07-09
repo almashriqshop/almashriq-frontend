@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export const Checkout: React.FC = () => {
   const { cart, cartSubtotal, cartTotal, appliedCoupon, discountAmount, clearCart } = useCart();
-  const { isAuthenticated, user, token, apiUrl } = useAuth();
+  const { user, token, apiUrl } = useAuth();
   const navigate = useNavigate();
 
   const [fullName, setFullName] = useState(user?.fullName || '');

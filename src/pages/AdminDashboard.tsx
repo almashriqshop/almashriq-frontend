@@ -2,10 +2,10 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  LayoutDashboard, ShoppingBag, Truck, Users, Tag, Settings, FileText,
+  ShoppingBag, Truck, Users, Settings, FileText,
   Plus, Trash2, Edit2, AlertCircle, TrendingUp, Package, DollarSign,
-  UserCheck, BarChart3, Camera, X, ChevronDown, Eye, Search,
-  ArrowUpRight, ArrowDownRight, RefreshCw
+  UserCheck, BarChart3, Camera, X, Search,
+  ArrowUpRight, RefreshCw
 } from 'lucide-react';
 
 type Panel = 'stats' | 'products' | 'orders' | 'customers' | 'settings' | 'blogs';

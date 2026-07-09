@@ -15,9 +15,9 @@ export const Dashboard: React.FC = () => {
   const [fullName, setFullName] = useState('');
   const [phone, setPhone] = useState('');
   const [streetAddress, setStreetAddress] = useState('');
-  const [city, setCity] = useState('Hyderabad');
+  const [city] = useState('Hyderabad');
   const [pincode, setPincode] = useState('');
-  const [state, setState] = useState('Telangana');
+  const [state] = useState('Telangana');
   const [addressError, setAddressError] = useState('');
 
   // Fetch orders

@@ -44,7 +44,7 @@ export const isValidPhone = (phone: string): boolean => {
 };
 
 // ================= PRODUCT HELPERS =================
-export const getProductImage = (images?: string[], category?: string): string => {
+export const getProductImage = (images?: string[], _category?: string): string => {
   if (images && images.length > 0 && images[0]) {
     return images[0];
   }

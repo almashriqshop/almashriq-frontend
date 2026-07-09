@@ -23,7 +23,7 @@ const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const location = useLocation();
-  const { user, isAdmin, apiUrl } = useAuth();
+  const { isAdmin, apiUrl } = useAuth();
   const [socialLinks, setSocialLinks] = useState({
     instagram: '', facebook: '', twitter: '', youtube: '', tiktok: '', pinterest: ''
   });

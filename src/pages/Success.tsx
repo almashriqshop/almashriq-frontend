@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
-import { CheckCircle2, Calendar, MapPin, Truck } from 'lucide-react';
+import { CheckCircle2, MapPin, Truck } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const Success: React.FC = () => {
