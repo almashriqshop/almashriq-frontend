@@ -1,0 +1,7 @@
+/*  Cloudflare Pages SPA Redirects  */
+/*  Send all routes to index.html for React Router  */
+/*  /api/* requests go to the backend on Railway  */
+
+/api/*  https://almashriq-api.up.railway.app/api/:splat  200
+
+/*  /index.html  200
