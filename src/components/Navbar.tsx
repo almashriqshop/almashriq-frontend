@@ -121,13 +121,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onCartToggle }) => {
 
             {/* Logo (Center) */}
             <div className="flex-1 flex justify-center lg:justify-center">
-              <Link to="/" className="flex items-center gap-2.5 group">
-                <img
-                  src="/logo.jpg"
-                  alt="Al Mashriq"
-                  className="w-[30px] h-[30px] md:w-[36px] md:h-[36px] object-cover rounded-full ring-1 ring-white/10 group-hover:ring-luxury-gold/30 transition-all duration-500"
-                />
-                <span className="font-serif text-[15px] md:text-[17px] lg:text-[19px] tracking-[0.2em] md:tracking-[0.28em] uppercase text-luxury-gold transition-all duration-500 group-hover:text-luxury-goldLight">
+              <Link to="/">
+                <span className="font-serif text-[15px] md:text-[17px] lg:text-[19px] tracking-[0.2em] md:tracking-[0.28em] uppercase text-luxury-gold">
                   Al Mashriq
                 </span>
               </Link>
@@ -242,8 +237,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onCartToggle }) => {
             >
               {/* Mobile menu header */}
               <div className="flex items-center justify-between px-5 h-[52px] border-b border-white/[0.06]">
-                <Link to="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
-                  <img src="/logo.jpg" alt="Al Mashriq" className="w-7 h-7 object-cover rounded-full" />
+                <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
                   <span className="font-serif text-sm tracking-[0.2em] uppercase text-luxury-gold">Al Mashriq</span>
                 </Link>
                 <button
