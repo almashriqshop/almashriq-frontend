@@ -53,7 +53,7 @@ export const Success: React.FC = () => {
             <span className="text-luxury-cream/40">Delivery Location</span>
             <span className="text-luxury-cream flex items-center">
               <MapPin size={10} className="mr-1 text-luxury-gold" />
-              Hyderabad Limits
+              All India
             </span>
           </div>
           <div className="flex justify-between">

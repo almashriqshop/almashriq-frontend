@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+l̥import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
@@ -21,7 +21,7 @@ export const Checkout: React.FC = () => {
   const [paymentMethod, setPaymentMethod] = useState<'cod' | 'upi'>('cod');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  
+
   // UPI QR Code Modal state
   const [showUpiModal, setShowUpiModal] = useState(false);
   const [upiTimer, setUpiTimer] = useState(120); // 2 minutes countdown
@@ -72,20 +72,20 @@ export const Checkout: React.FC = () => {
 
   const handlePlaceOrder = async () => {
     if (!validateCheckout()) return;
-    
+
     if (paymentMethod === 'upi') {
       setUpiTimer(120);
       setShowUpiModal(true);
       return;
     }
-    
+
     await executeCheckout();
   };
 
   const executeCheckout = async () => {
     setLoading(true);
     setError('');
-    
+
     const checkoutData = {
       items: cart.map(item => ({
         productId: item.productId,
@@ -142,7 +142,7 @@ export const Checkout: React.FC = () => {
   return (
     <div className="pt-24 min-h-screen bg-luxury-black pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Navigation Breadcrumb */}
         <div className="flex items-center space-x-1.5 sm:space-x-2 text-[8px] sm:text-[10px] uppercase tracking-widest text-luxury-cream/45 mb-6 sm:mb-8">
           <Link to="/shop" className="hover:text-luxury-gold">Boutique</Link>
@@ -264,11 +264,10 @@ export const Checkout: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setPaymentMethod('cod')}
-                  className={`p-4 border text-left flex flex-col justify-between transition-all rounded-2xl ${
-                    paymentMethod === 'cod'
+                  className={`p-4 border text-left flex flex-col justify-between transition-all rounded-2xl ${paymentMethod === 'cod'
                       ? 'border-luxury-gold bg-luxury-gold/5'
                       : 'border-white/5 bg-luxury-charcoal/20 hover:border-white/20'
-                  }`}
+                    }`}
                 >
                   <span className="text-xs uppercase tracking-widest text-luxury-cream font-bold">Cash On Delivery</span>
                   <span className="text-[9px] text-luxury-cream/45 uppercase tracking-widest mt-2">
@@ -279,11 +278,10 @@ export const Checkout: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setPaymentMethod('upi')}
-                  className={`p-4 border text-left flex flex-col justify-between transition-all rounded-2xl ${
-                    paymentMethod === 'upi'
+                  className={`p-4 border text-left flex flex-col justify-between transition-all rounded-2xl ${paymentMethod === 'upi'
                       ? 'border-luxury-gold bg-luxury-gold/5'
                       : 'border-white/5 bg-luxury-charcoal/20 hover:border-white/20'
-                  }`}
+                    }`}
                 >
                   <span className="text-xs uppercase tracking-widest text-luxury-cream font-bold">UPI / QR Code</span>
                   <span className="text-[9px] text-luxury-cream/45 uppercase tracking-widest mt-2">
@@ -335,7 +333,7 @@ export const Checkout: React.FC = () => {
               )}
               <div className="flex justify-between text-xs uppercase tracking-widest text-luxury-cream/60">
                 <span>Delivery</span>
-                <span className="text-luxury-gold">FREE (HYD LIMITS)</span>
+                <span className="text-luxury-gold">FREE ALL INDIA</span>
               </div>
 
               <div className="flex justify-between text-sm uppercase tracking-widest text-luxury-cream font-serif pt-3 border-t border-white/5">
@@ -410,7 +408,7 @@ export const Checkout: React.FC = () => {
                 >
                   {loading ? 'Confirming...' : 'I Have Paid'}
                 </button>
-                
+
                 <button
                   onClick={() => setShowUpiModal(false)}
                   className="text-[10px] uppercase tracking-widest text-luxury-cream/45 hover:text-red-400 block mx-auto transition-colors pt-2"

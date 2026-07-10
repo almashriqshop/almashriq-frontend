@@ -357,7 +357,7 @@ export const Dashboard: React.FC = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   {[
                     { code: 'WELCOME10', reward: '10% OFF orders over 5k', details: 'Perfect for first reserve selections.' },
-                    { code: 'HYDOUD', reward: 'INR 1,500 OFF orders over 10k', details: 'Special discount celebrating our Hyderabad focus.' },
+                    { code: 'HYDOUD', reward: 'INR 1,500 OFF orders over 10k', details: 'Special discount celebrating our launch across India.' },
                     { code: 'JASMINE5', reward: '5% OFF orders over 2k', details: 'Applicable to any perfume absolute.' }
                   ].map((cop) => (
                     <div key={cop.code} className="border border-dashed border-luxury-gold/30 rounded-xl p-4 sm:p-6 space-y-3 bg-luxury-charcoal/20">

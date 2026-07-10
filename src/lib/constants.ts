@@ -10,9 +10,9 @@ export const BRAND = {
   email: 'concierge@almashriq.shop',
   phone: '+91 90000 12345',
   address: 'Jubilee Hills, Road No. 36, Hyderabad, TS, India',
-  deliveryCity: 'Hyderabad',
-  deliveryState: 'Telangana',
-  deliveryPincodePrefix: '500',
+  deliveryCity: 'All India',
+  deliveryState: 'India',
+  deliveryPincodePrefix: '',
 } as const;
 
 // ================= COLOR PALETTE =================
