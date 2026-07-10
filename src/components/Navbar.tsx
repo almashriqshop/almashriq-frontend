@@ -68,7 +68,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onCartToggle }) => {
       {/* Announcement Bar */}
       <div className="fixed top-0 left-0 w-full z-50 bg-luxury-gold text-luxury-black py-[5px] px-4 text-center">
         <p className="text-[9px] md:text-[10px] font-semibold uppercase tracking-[0.2em]">
-          EXQUISITE CRAFTSMANSHIP — DIRECT DELIVERIES TO HYDERABAD METRO ONLY
+          EXQUISITE CRAFTSMANSHIP — NOW SHIPPING ALL OVER INDIA
         </p>
       </div>
 

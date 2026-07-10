@@ -50,7 +50,7 @@ export const Home: React.FC = () => {
     },
     {
       name: 'Meera P.',
-      text: 'Finally a Hyderabad brand that actually uses pure oils. The sandalwood is incredible.',
+      text: 'Finally an Indian brand that actually uses pure oils. The sandalwood is incredible.',
       rating: 5,
     },
   ];
@@ -58,7 +58,7 @@ export const Home: React.FC = () => {
   const stats = [
     { number: '45+', label: 'Fragrances' },
     { number: '100%', label: 'Pure Oils' },
-    { number: '24-48h', label: 'City Delivery' },
+    { number: 'Free', label: 'India Shipping' },
     { number: '4.9', label: 'Avg Rating' },
   ];
 
@@ -90,7 +90,7 @@ export const Home: React.FC = () => {
             transition={{ duration: 1.2, delay: 0.2 }}
             className="text-[10px] sm:text-xs uppercase text-luxury-gold tracking-[0.4em] block"
           >
-            Handcrafted in Hyderabad
+            Handcrafted in India
           </motion.span>
 
           <motion.h1
@@ -177,7 +177,7 @@ export const Home: React.FC = () => {
               We started Al Mashriq because we were tired of paying premium prices for perfume alcohol with "oud" on the label. Every fragrance we make uses real Cambodi oudh, Mysore sandalwood, or Indian jasmine absolute — sourced directly, distilled in small batches, blended by hand.
             </p>
             <p className="text-sm text-luxury-cream/60 leading-relaxed max-w-lg">
-              No fillers. No synthetics passed off as natural. Just oil, the way attar has been made in Hyderabad for centuries.
+              No fillers. No synthetics passed off as natural. Just oil, the way attar has been made in India for centuries.
             </p>
             <div className="pt-2">
               <Link to="/about" className="inline-flex items-center space-x-2 text-xs uppercase tracking-widest text-luxury-gold hover:text-luxury-goldLight transition-colors">
@@ -330,9 +330,9 @@ export const Home: React.FC = () => {
             </div>
             <div className="space-y-3 p-4 text-center">
               <Truck className="text-luxury-gold mx-auto" size={24} />
-              <h3 className="font-serif text-sm uppercase tracking-wide">Hyderabad Only</h3>
+              <h3 className="font-serif text-sm uppercase tracking-wide">Pan-India Delivery</h3>
               <p className="text-[10px] text-luxury-cream/50 leading-relaxed">
-                Same-day dispatch within city limits.
+                Fast shipping to all states in India.
               </p>
             </div>
             <div className="space-y-3 p-4 text-center">

@@ -51,7 +51,7 @@ export const Contact: React.FC = () => {
         <div className="space-y-8">
           <h2 className="font-serif text-2xl text-luxury-cream uppercase">Al Mashriq House</h2>
           <p className="text-xs text-luxury-cream/60 leading-relaxed uppercase tracking-widest font-light">
-            We deliver exclusively within the metropolitan borders of Hyderabad to ensure secure, temperature-controlled delivery.
+            We deliver premium perfumes all over India, ensuring secure and tracked shipping to your doorstep.
           </p>
           
           <div className="space-y-4 text-xs uppercase tracking-widest text-luxury-cream/80">
@@ -215,7 +215,7 @@ export const Blog: React.FC = () => {
 export const FAQ: React.FC = () => {
   useEffect(() => { window.scrollTo(0, 0); }, []);
   const faqs = [
-    { q: 'Why do you deliver only within Hyderabad?', a: 'To protect the delicate absolute ingredients of our perfumes from temperature spikes and courier mishandling, we use our own local brand representatives to hand-deliver reserves under controlled environments.' },
+    { q: 'How do you ship your perfumes across India?', a: 'We ship all our bespoke reserves in temperature-controlled, shock-absorbent luxury packaging via expedited, tracked domestic shipping to ensure they reach you in pristine condition.' },
     { q: 'What is the concentration of your fragrances?', a: 'All Al Mashriq creations are bottled at Extrait de Parfum levels (25-30% pure oil concentrate), ensuring longevity that easily exceeds 8-12 hours.' },
     { q: 'Are your boxes suitable for gifting?', a: 'Yes. Every reserve bottle is nestled inside a black lacquered timber casket wrapped in thick raw silk, accompanied by an envelope containing notes certificates.' },
     { q: 'Can I apply cash on delivery?', a: 'Certainly. Cash on delivery and UPI scan-on-delivery are fully integrated at checkout. Both are free.' }
@@ -285,7 +285,7 @@ export const LegalPages: React.FC<{ type: 'privacy' | 'refund' | 'terms' }> = ({
       default:
         return {
           title: 'Terms of Service',
-          content: 'By placing an order on almashriq.shop, you verify that your delivery location sits within municipal boundaries of Hyderabad, TS. Orders containing addresses outside Hyderabad will be cancelled immediately and refunded.'
+          content: 'By placing an order on almashriq.shop, you verify that your delivery location is a valid shipping address within India. We ship to all major cities and states across the country.'
         };
     }
   };

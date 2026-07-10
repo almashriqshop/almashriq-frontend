@@ -177,10 +177,10 @@ export const ProductPage: React.FC = () => {
             {/* Delivery Alert box */}
             <div className="border border-white/5 bg-luxury-charcoal/30 p-4 space-y-2 rounded-xl">
               <span className="text-[10px] text-luxury-gold uppercase tracking-wider block font-semibold">
-                Delivery Restrictions
+                Shipping Information
               </span>
               <p className="text-xs text-luxury-cream/60 uppercase tracking-widest leading-relaxed">
-                Hand-delivered by official Al Mashriq representatives. Available exclusively inside municipal bounds of Hyderabad, India. Free same-day or next-day shipping.
+                Hand-delivered via premium expedited shipping. Available for delivery all over India with free shipping.
               </p>
             </div>
 

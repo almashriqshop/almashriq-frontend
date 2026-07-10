@@ -203,7 +203,7 @@ const App: React.FC = () => {
         {/* Fine print */}
         <div className="border-t border-white/5 pt-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-[9px] uppercase tracking-[0.25em] text-luxury-cream/40 gap-4">
           <span>&copy; 2026 Al Mashriq Perfumes Ltd. All rights reserved.</span>
-          <span>Bespoke Distillation. Delivered in Hyderabad Limits only.</span>
+          <span>Bespoke Distillation. Delivering all over India.</span>
         </div>
       </footer>
 

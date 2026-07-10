@@ -15,9 +15,9 @@ export const Dashboard: React.FC = () => {
   const [fullName, setFullName] = useState('');
   const [phone, setPhone] = useState('');
   const [streetAddress, setStreetAddress] = useState('');
-  const [city] = useState('Hyderabad');
+  const [city, setCity] = useState('');
   const [pincode, setPincode] = useState('');
-  const [state] = useState('Telangana');
+  const [state, setState] = useState('');
   const [addressError, setAddressError] = useState('');
 
   // Fetch orders
@@ -56,13 +56,8 @@ export const Dashboard: React.FC = () => {
       return;
     }
 
-    if (city.toLowerCase() !== 'hyderabad') {
-      setAddressError('Currently, Al Mashriq delivers only to Hyderabad.');
-      return;
-    }
-
-    if (!pincode.startsWith('500')) {
-      setAddressError('Pincode must belong to Hyderabad (starts with 500).');
+    if (!/^[1-9][0-9]{5}$/.test(pincode)) {
+      setAddressError('Please enter a valid 6-digit India pincode.');
       return;
     }
 
@@ -80,7 +75,9 @@ export const Dashboard: React.FC = () => {
       setFullName('');
       setPhone('');
       setStreetAddress('');
+      setCity('');
       setPincode('');
+      setState('');
     }
   };
 
@@ -222,7 +219,7 @@ export const Dashboard: React.FC = () => {
                 {/* Add Address Form */}
                 {showAddressForm && (
                   <form onSubmit={handleAddAddress} className="bg-luxury-charcoal/50 border border-luxury-gold/20 rounded-xl p-4 sm:p-6 space-y-4">
-                    <h3 className="text-xs uppercase tracking-widest text-luxury-gold font-semibold">New Hyderabad Address</h3>
+                    <h3 className="text-xs uppercase tracking-widest text-luxury-gold font-semibold">New Shipping Address</h3>
                     
                     {addressError && (
                       <div className="bg-red-950/20 border border-red-500/20 text-red-300 text-[10px] p-3 flex items-start space-x-1.5 uppercase tracking-wider">
@@ -271,8 +268,10 @@ export const Dashboard: React.FC = () => {
                         <input
                           type="text"
                           value={city}
-                          disabled
-                          className="w-full bg-luxury-black/30 border border-white/5 px-3 py-2 sm:py-1.5 text-xs text-luxury-cream/40 cursor-not-allowed uppercase tracking-wider"
+                          onChange={(e) => setCity(e.target.value)}
+                          placeholder="Enter city"
+                          className="w-full bg-luxury-black border border-white/10 px-3 py-2 sm:py-1.5 text-xs text-luxury-cream focus:border-luxury-gold focus:outline-none uppercase tracking-wider"
+                          required
                         />
                       </div>
                       <div className="space-y-1">
@@ -281,7 +280,7 @@ export const Dashboard: React.FC = () => {
                           type="text"
                           value={pincode}
                           onChange={(e) => setPincode(e.target.value)}
-                          placeholder="5000XX"
+                          placeholder="e.g. 560001"
                           className="w-full bg-luxury-black border border-white/10 px-3 py-2 sm:py-1.5 text-xs text-luxury-cream focus:border-luxury-gold focus:outline-none tracking-wider"
                           required
                         />
@@ -291,8 +290,10 @@ export const Dashboard: React.FC = () => {
                         <input
                           type="text"
                           value={state}
-                          disabled
-                          className="w-full bg-luxury-black/30 border border-white/5 px-3 py-2 sm:py-1.5 text-xs text-luxury-cream/40 cursor-not-allowed uppercase tracking-wider"
+                          onChange={(e) => setState(e.target.value)}
+                          placeholder="Enter state"
+                          className="w-full bg-luxury-black border border-white/10 px-3 py-2 sm:py-1.5 text-xs text-luxury-cream focus:border-luxury-gold focus:outline-none uppercase tracking-wider"
+                          required
                         />
                       </div>
                     </div>

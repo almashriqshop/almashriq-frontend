@@ -100,8 +100,8 @@ export const FOOTER_LINKS = {
 // ================= FAQ DATA =================
 export const FAQ_DATA = [
   {
-    q: 'Why do you deliver only within Hyderabad?',
-    a: 'To protect the delicate absolute ingredients of our perfumes from temperature spikes and courier mishandling, we use our own local brand representatives to hand-deliver reserves under controlled environments.',
+    q: 'How do you ship your perfumes across India?',
+    a: 'We ship all our bespoke reserves in temperature-controlled, shock-absorbent luxury packaging via expedited, tracked domestic shipping to ensure they reach you in pristine condition.',
   },
   {
     q: 'What is the concentration of your fragrances?',
@@ -120,7 +120,7 @@ export const FAQ_DATA = [
 // ================= COUPON DATA =================
 export const COUPON_DATA = [
   { code: 'WELCOME10', reward: '10% OFF orders over 5k', details: 'Perfect for first reserve selections.' },
-  { code: 'HYDOUD', reward: 'INR 1,500 OFF orders over 10k', details: 'Special discount celebrating our Hyderabad focus.' },
+  { code: 'HYDOUD', reward: 'INR 1,500 OFF orders over 10k', details: 'Special discount celebrating our launch across India.' },
   { code: 'JASMINE5', reward: '5% OFF orders over 2k', details: 'Applicable to any perfume absolute.' },
 ] as const;
 
@@ -147,4 +147,5 @@ export const TEST_CREDENTIALS = {
 } as const;
 
 // ================= PINCODE VALIDATION =================
-export const VALID_PINCODE_PREFIXES = ['500'] as const;
+// No longer restricted to specific prefixes, any valid 6-digit Indian pincode is accepted.
+export const VALID_PINCODE_PREFIXES = [] as const;

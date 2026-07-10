@@ -14,9 +14,9 @@ export const Checkout: React.FC = () => {
   const [email, setEmail] = useState(user?.email || '');
   const [phone, setPhone] = useState('');
   const [streetAddress, setStreetAddress] = useState('');
-  const [city, setCity] = useState('Hyderabad');
+  const [city, setCity] = useState('');
   const [pincode, setPincode] = useState('');
-  const [state, setState] = useState('Telangana');
+  const [state, setState] = useState('');
 
   const [paymentMethod, setPaymentMethod] = useState<'cod' | 'upi'>('cod');
   const [error, setError] = useState('');
@@ -62,12 +62,8 @@ export const Checkout: React.FC = () => {
       setError('Please fill in all shipping fields.');
       return false;
     }
-    if (city.toLowerCase() !== 'hyderabad') {
-      setError('Al Mashriq currently offers delivery within Hyderabad only.');
-      return false;
-    }
-    if (!pincode.startsWith('500')) {
-      setError('Please enter a valid Hyderabad pincode (starts with 500).');
+    if (!/^[1-9][0-9]{5}$/.test(pincode)) {
+      setError('Please enter a valid 6-digit India pincode.');
       return false;
     }
     setError('');
@@ -211,12 +207,14 @@ export const Checkout: React.FC = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div className="space-y-1">
-                  <label className="text-[9px] uppercase tracking-widest text-luxury-cream/60">City (Hyderabad Only)</label>
+                  <label className="text-[9px] uppercase tracking-widest text-luxury-cream/60">City</label>
                   <input
                     type="text"
                     value={city}
-                    disabled
-                    className="w-full bg-luxury-black border border-white/5 px-3 py-2.5 sm:py-2 text-xs text-luxury-cream/50 cursor-not-allowed uppercase tracking-wider"
+                    onChange={(e) => setCity(e.target.value)}
+                    placeholder="Enter city"
+                    className="w-full bg-luxury-charcoal border border-white/10 px-3 py-2.5 sm:py-2 text-xs text-luxury-cream focus:border-luxury-gold focus:outline-none uppercase tracking-wider"
+                    required
                   />
                 </div>
                 <div className="space-y-1">
@@ -225,7 +223,7 @@ export const Checkout: React.FC = () => {
                     type="text"
                     value={pincode}
                     onChange={(e) => setPincode(e.target.value)}
-                    placeholder="5000XX"
+                    placeholder="Pincode (e.g. 560001)"
                     className="w-full bg-luxury-charcoal border border-white/10 px-3 py-2.5 sm:py-2 text-xs text-luxury-cream focus:border-luxury-gold focus:outline-none tracking-wider"
                     required
                   />
@@ -235,8 +233,10 @@ export const Checkout: React.FC = () => {
                   <input
                     type="text"
                     value={state}
-                    disabled
-                    className="w-full bg-luxury-black border border-white/5 px-3 py-2.5 sm:py-2 text-xs text-luxury-cream/50 cursor-not-allowed uppercase tracking-wider"
+                    onChange={(e) => setState(e.target.value)}
+                    placeholder="Enter state"
+                    className="w-full bg-luxury-charcoal border border-white/10 px-3 py-2.5 sm:py-2 text-xs text-luxury-cream focus:border-luxury-gold focus:outline-none uppercase tracking-wider"
+                    required
                   />
                 </div>
               </div>

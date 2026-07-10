@@ -28,11 +28,11 @@ export const formatDateTime = (dateStr: string | undefined): string => {
 
 // ================= VALIDATION HELPERS =================
 export const isValidPincode = (pincode: string): boolean => {
-  return VALID_PINCODE_PREFIXES.some((prefix) => pincode.startsWith(prefix));
+  return /^[1-9][0-9]{5}$/.test(pincode);
 };
 
-export const isValidHyderabad = (city: string): boolean => {
-  return city.toLowerCase() === BRAND.deliveryCity.toLowerCase();
+export const isValidHyderabad = (_city: string): boolean => {
+  return true;
 };
 
 export const isValidEmail = (email: string): boolean => {

@@ -171,7 +171,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
                 <div className="bg-luxury-gold/5 border border-luxury-gold/20 p-3 flex items-start space-x-2 rounded-xl">
                   <AlertCircle size={16} className="text-luxury-gold shrink-0 mt-0.5" />
                   <p className="text-[10px] text-luxury-cream/80 uppercase tracking-wider leading-relaxed">
-                    HAND-DELIVERED ONLY IN HYDERABAD. FREE METROPOLITAN SHIPPING.
+                    EXPRESS SHIPPING ALL OVER INDIA. FREE SHIPPING.
                   </p>
                 </div>
 
