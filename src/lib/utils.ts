@@ -1,4 +1,3 @@
-import { VALID_PINCODE_PREFIXES, BRAND } from './constants';
 
 // ================= FORMAT HELPERS =================
 export const formatPrice = (price: number | string): string => {
