@@ -108,7 +108,7 @@ export const Home: React.FC = () => {
               animate={{ scaleX: 1, opacity: 0.8 }}
               transition={{ duration: 1.2, delay: 0.7, ease: "easeOut" }}
               style={{ originX: 0 }}
-              className="h-[1px] w-12 sm:w-20 bg-luxury-gold"
+              className="h-[1px] w-8 sm:w-16 bg-luxury-gold"
             />
             <motion.span
               initial={{ opacity: 0, x: -20 }}
@@ -118,6 +118,13 @@ export const Home: React.FC = () => {
             >
               The Essence of the East
             </motion.span>
+            <motion.div
+              initial={{ scaleX: 0, opacity: 0 }}
+              animate={{ scaleX: 1, opacity: 0.8 }}
+              transition={{ duration: 1.2, delay: 0.7, ease: "easeOut" }}
+              style={{ originX: 0 }}
+              className="h-[1px] w-8 sm:w-16 bg-luxury-gold"
+            />
           </div>
 
           <motion.div
