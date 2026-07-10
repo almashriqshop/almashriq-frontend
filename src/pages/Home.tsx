@@ -102,14 +102,30 @@ export const Home: React.FC = () => {
             AL MASHRIQ
           </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.7 }}
-            transition={{ duration: 1, delay: 0.7 }}
-            className="text-xs sm:text-sm uppercase tracking-[0.25em] text-luxury-cream max-w-lg mx-auto font-light"
-          >
-            The Essence of the East.
-          </motion.p>
+          <div className="flex items-center justify-center gap-4 text-xs sm:text-sm uppercase tracking-[0.25em] text-luxury-cream max-w-xl mx-auto font-light">
+            <motion.div
+              initial={{ scaleX: 0, opacity: 0 }}
+              animate={{ scaleX: 1, opacity: 0.4 }}
+              transition={{ duration: 1.2, delay: 0.7, ease: "easeOut" }}
+              style={{ originX: 0 }}
+              className="h-[1px] w-8 sm:w-16 bg-luxury-cream hidden sm:block"
+            />
+            <motion.span
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 0.7, y: 0 }}
+              transition={{ duration: 1, delay: 0.7 }}
+              className="whitespace-nowrap"
+            >
+              The Essence of the East
+            </motion.span>
+            <motion.div
+              initial={{ scaleX: 0, opacity: 0 }}
+              animate={{ scaleX: 1, opacity: 0.4 }}
+              transition={{ duration: 1.2, delay: 0.7, ease: "easeOut" }}
+              style={{ originX: 0 }}
+              className="h-[1px] w-8 sm:w-16 bg-luxury-cream hidden sm:block"
+            />
+          </div>
 
           <motion.div
             initial={{ opacity: 0 }}
