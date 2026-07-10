@@ -108,7 +108,7 @@ export const Home: React.FC = () => {
             transition={{ duration: 1, delay: 0.7 }}
             className="text-xs sm:text-sm uppercase tracking-[0.25em] text-luxury-cream max-w-lg mx-auto font-light"
           >
-            Pure oudh, sandalwood &amp; jasmine perfumes. Made from real absolute oils.
+            The Essence of the East.
           </motion.p>
 
           <motion.div
